@@ -1,6 +1,13 @@
-import { toDoItem } from "./toDoItem";
-import {Project,ToDoItem} from './toDoItem.js';
+import {Project,ToDoItem,projectsModule,displayController} from './toDoItem.js';
+import { compareAsc, format } from 'date-fns'
 
-const project1 = new Project("hello", "hello");
 
-console.log(`this project name is ${project1.getTitle} and description is ${project1.getDescription}`);
+const toDoOne = new ToDoItem("title","description","dueDate","priority");
+
+// console.log(project1.getTitle());
+
+// const todo1 = new ToDoItem("help mum", "do dishes",new Date(2014,1,11),"high");
+
+// project1.addToDo(todo1);
+
+// console.log(project1.getList());

@@ -2,10 +2,6 @@
 
 const ToDoItem = (title,description,dueDate,priority) => {
 
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
 
     const getTitle = () => {
 
@@ -64,8 +60,6 @@ const ToDoItem = (title,description,dueDate,priority) => {
 
 const Project = (title,description) => {
 
-    this.title = title;
-    this.description = description;
     this.toDoList = [];
 
 
@@ -74,6 +68,7 @@ const Project = (title,description) => {
         return this.title;
 
     }
+
 
     const getDescription = () => {
 
@@ -98,6 +93,55 @@ const Project = (title,description) => {
 
 }
 
+const ProjectList = (function() {
 
-export {Project,ToDoItem}
+    let projectList = []; //stores a list of projects for view
 
+
+    const addNewProject = (project) => {//creates a new project and adds it to the list
+
+        projectList.push(project);
+
+    }
+
+    const listProjects = () => { //returns a list of all current projects
+
+        return projectList;
+
+    }
+
+    return {listProjects,addNewProject}
+
+    
+
+}());
+
+
+const displayController = (function(){
+
+    const displayProjects = () => {
+
+        console.log("not implemented yet");
+
+    }
+
+    const displayToDoLists = () => {
+
+        console.log("not yet implemented");
+
+    }
+
+    return {displayToDoLists,displayProjects}
+
+})();
+
+
+// export {Project,ToDoItem,ProjectList,displayController}
+
+
+
+
+
+const project1 = new Project("hello", "hello");
+
+console.log(project1);
