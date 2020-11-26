@@ -2,6 +2,7 @@
 
 import {ToDoItem,Project,ProjectList,displayController} from './toDoItem.js';
 import { compareAsc, format } from 'date-fns'
+import {renderScreen} from './renderFunctions';
 import './styles.css';
 
 
@@ -35,7 +36,7 @@ ProjectList.addNewProject(project2);
 console.log(ProjectList.listProjects()[0].getTitle());
 
 
-displayController.displayProjects();
+renderScreen();
 
 
 

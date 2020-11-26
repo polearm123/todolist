@@ -92,6 +92,12 @@ const Project = (title,description) => {
 
     }
 
+    const removeToDo = (projectToDoElement) => {
+
+        console.log("not yet implemented");
+
+    }
+
     return{addToDo, getList,getDescription, getTitle}
 
 }
@@ -120,8 +126,10 @@ const ProjectList = (function() {
 
 const displayController = (function(){
 
-    const displayProjects = () => { //goes through the project list and prints them on screen 
+    const displayProjects = () => { //presents the main page and all projects on screen
 
+        createPageOutline();
+        
         var container = document.querySelector(".container");
 
         for(let i=0;i<ProjectList.listProjects().length;i++){ //appends projects to thei main container
@@ -204,13 +212,35 @@ const displayController = (function(){
 
     }
 
-    const displayToDoLists = () => {
+    const createPageOutline = () => { //should create the skeleton of the webpage
 
-        console.log("not yet implemented");
+        var tabs = document.createElement("div");
+        tabs.classList.add("tabs");
+        var body = document.querySelector("body");
+
+        //change hard coded tab value
+
+        tabs.appendChild(createDOMElement("button",`1`,"tablink","completed projects"))
+        tabs.appendChild(createDOMElement("button",`2`,"tablink","completed projects"))
+        tabs.appendChild(createDOMElement("button",`3`,"tablink","completed projects"))
+        tabs.appendChild(createDOMElement("button",`add`,"tablink","add project"))
+
+        body.appendChild(tabs);
 
     }
 
-    return {displayToDoLists,displayProjects}
+    const createDOMElement = (elementType,elementID,elementClass,elementString) => { //creates and returns an element with required id, class and string
+
+        var customElement = document.createElement(`${elementType}`);
+        customElement.classList.add(`${elementClass}`);
+        customElement.id = elementID;
+        customElement.textContent = elementString;
+
+        return customElement;
+
+    }
+
+    return {displayProjects}
 
 })()
 
